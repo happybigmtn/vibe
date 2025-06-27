@@ -11,5 +11,8 @@ export const getQueryClient = cache(makeQueryClient);
 // Create the caller factory
 const createCaller = createCallerFactory(appRouter);
 
-// Export a server-side caller
-export const trpc = createCaller(createTRPCContext);
+// Export a function that creates a server-side caller
+export const getServerTrpc = async () => {
+  const context = await createTRPCContext();
+  return createCaller(context);
+};
