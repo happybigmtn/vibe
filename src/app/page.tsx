@@ -1,10 +1,11 @@
-import { Button } from "@/components/ui/button"
+import { Client } from "./client";
+import { Suspense } from "react";
 
-const Page = () => {
+const Page = async () => {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Client />
+    </Suspense>
   )
 }
 
